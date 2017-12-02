@@ -4,16 +4,16 @@
 	"name": "FakeOut",
 	"description": "Tracks what users are writings and checks if they are using correct facts. If not it will correct them. If so it will present articles relating to topics they are discussing.",
 	"version": "1.0",
-	"background":{
-		"scripts": ["thirdParty/jquery-2.0.3.js"]
-		// "persistent": false
-	},
+	// "background":{
+	// 	"scripts": ["jquery.min.js"]
+	// 	"persistent": false
+	// },
 
 	// "browser_action": {
 	// 	"default_popup": "popup.html"
 	// },
 	"content_scripts":[{
-		"js": ["thirdParty/jquery.1.10.2.min.js", "background.js"],
+		"js": ["jquery-3.2.1.js", "background.js"],
 		"matches": ["http://*/*", "https://*/*"]
 	}],
 	"web_accessible_resources": ["index.js"],
