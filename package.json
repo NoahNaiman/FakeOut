@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/NoahNaiman/YHack2017#readme",
   "dependencies": {
-    "data-point": "^1.5.0"
+    "data-point": "^1.5.0",
+    "socket.io": "^2.0.4"
   }
 }
