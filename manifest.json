@@ -16,10 +16,10 @@
 		"js": ["jquery-3.2.1.js", "background.js"],
 		"matches": ["http://*/*", "https://*/*"]
 	}],
-	"web_accessible_resources": ["index.js"],
+	"web_accessible_resources": ["jquery-3.2.1.js", "index.js"],
 	"permissions":[
 		"pageCapture",
-		"activeTab"
+		"activeTab",
 		// "tabs",
 		// "http://www.google.com/*"
 	],
