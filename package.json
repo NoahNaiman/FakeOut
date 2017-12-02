@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/NoahNaiman/YHack2017/issues"
   },
-  "homepage": "https://github.com/NoahNaiman/YHack2017#readme"
+  "homepage": "https://github.com/NoahNaiman/YHack2017#readme",
+  "dependencies": {
+    "data-point": "^1.5.0"
+  }
 }
