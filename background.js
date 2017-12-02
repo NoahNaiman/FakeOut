@@ -1,7 +1,14 @@
-var s = document.createElement('script');
-// TODO: add "script.js" to web_accessible_resources in manifest.json
-s.src = chrome.extension.getURL('index.js');
-s.onload = function() {
-    this.remove();
-};
-(document.head || document.documentElement).appendChild(s);
+$(document).ready(function() {
+	var articles = [];
+	 $('*').click(function(e){
+		var $target = $(e.currentTarget);
+		$target.find('a').each(function(){
+			var link = String($(this).attr('href'));
+			if(link.indexOf('www.facebook.com') == -1 && link.indexOf('l.facebook.com') == -1 && link != '#' && link.indexOf('http') > -1){
+				articles.push(link);
+			}
+		});
+		articles = Array.from(new Set(articles));
+	 	console.log(articles);
+	 });
+});
