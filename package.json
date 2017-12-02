@@ -1,0 +1,19 @@
+{
+  "name": "yhack2017",
+  "version": "1.0.0",
+  "description": "YHack 2017 project to counter fake news.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NoahNaiman/YHack2017.git"
+  },
+  "author": "Noah Naiman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NoahNaiman/YHack2017/issues"
+  },
+  "homepage": "https://github.com/NoahNaiman/YHack2017#readme"
+}
