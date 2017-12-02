@@ -8,11 +8,13 @@
 		"scripts": ["index.js"]
 	},
 
-	"browser_action": {
-		"default_popup": "popup.html"
-	},
+	// "browser_action": {
+	// 	"default_popup": "popup.html"
+	// },
 
 	"permissions":[
-		"input"
+		// "input",
+		"tabs",
+		"http://www.google.com/*"
 	]
 }
