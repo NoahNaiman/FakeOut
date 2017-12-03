@@ -8,10 +8,15 @@ url = ''
 
 @app.route('/', methods=['POST'])
 def index():
+	result = []
 	url = request.data.decode('utf-8')
-	# print('\n', url, '\n')
-	#print(checker.run(url))
-	return(checker.run(url));
+	article = checker.run(url)
+	news_type = checker.run(article)
+	result.append(news_type)
+	if news_type == 'FAKE':
+		articles = checker.alternative_article(news_type)
+		result.append(articles)
+	return(result);
 
 if __name__ == "__main__":
 	app.run(ssl_context=('server.crt', 'server.pem'))

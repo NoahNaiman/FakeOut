@@ -12,9 +12,9 @@ $(document).ready(function() {
 				if(!requested){
 					http.open('POST', url, true);
 					http.send(link);
-					http.onreadystatechange = function(){
+					http.onreadystatechange = function() {
 						if(http.readyState == 4 && http.status == 200){
-							chrome.runtime.sendMessage({isFakeNews: http.responseText}, function(response){
+							chrome.runtime.sendMessage({isFakeNews: http.responseText}, function(response) {
 								console.log(response.farewell);
 							});
 						}

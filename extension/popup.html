@@ -8,7 +8,6 @@
   <head>
     <script src="jquery-3.2.1.js"></script>
     <script src="popup.js"></script>
-<!--     <script src="background.js"></script> -->
     <title>Getting Started Extension's Popup</title>
     <style type="text/css">
       body {
@@ -28,7 +27,7 @@
         justify-content: space-between;
       }
 
-      .firsttext p {
+      #firsttext p {
         color: #CC1212;
         font-size: 15px;
         font-weight: 700;
@@ -37,16 +36,16 @@
         font-style: italic;
 }
 
-      .secondtext {
+      #secondtext {
         word-wrap: break-word;
       }
-      .secondtext p {
+      #secondtext p {
         color: #1B1B1B;
         font-size: 10px;
         font-weight: 200;
       }
 
-      .secondtext a {
+      #secondtext a {
           font-size: 20px;
           text-decoration-line: none;
           font-color: black;
@@ -77,10 +76,10 @@
 
   <body>
       <div class="box arrow-top">
-        <div class= "firsttext">
-          <center><p>This article is fake news</p></center>
+        <div id= "firsttext">
+         <!--  <center><p>This article is fake news</p></center -->
         </div>
-      <div class= "secondtext">
+      <div id= "secondtext">
           <center><p>We suggest sharing this real news instead:</p>
           <a href="" id="burl">Article 1</a>
           <br>

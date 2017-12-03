@@ -11,6 +11,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
 from bs4 import BeautifulSoup
+import random
 
 class Data:
 	def __init__(self):
@@ -46,17 +47,50 @@ class Data:
 		soup = soup.find_all('p')
 		article = ''
 		for i in soup:
-			if not i.has_attr('class') and not i.has_attr('id') and not i.has_attr('href') and not i.has_attr('a') and not i.has_attr('script'):
-				text = i.getText();
-				if('<script' not in text and '<a href=' not in text):
-					article += i.getText()
+			article += i.getText()
 		return article
 
-	def run(self, string):
-		docs_new = [self.scrape(string)]
-		# print("HEEEEELLLLLOOOOO!", docs_new)
-		# docs_new.append(string)
+	def run(self, article):
+		docs_new = [article]
 		X_new_counts = self.count_vect.transform(docs_new)
 		X_new_tfidf = self.tfidf_transformer.transform(X_new_counts)
 		predicted = self.clf.predict(X_new_tfidf)
 		return str(predicted[0])
+
+	def alternative_article(self,article):
+
+		global_warming = pd.read_csv("Scrapping_files/Global_warming_art.csv")
+		russia = pd.read_csv("Scrapping_files/Russia_art.csv")
+		north_korea = pd.read_csv("Scrapping_files/North_korea_art.csv")
+		result = []
+		new_article = article.split()
+		print('New Article:', new_article)
+		for i in range(0,len(new_article)):
+			if new_article[i].lower() == u'warming' or new_article[i].lower() == u'global':
+				output = random.sample(range(1, 15), 3)
+				np.vstack(arr[:,:]).astype(np.float)
+				result.append(global_warming.values[output[0]].tolist())
+				result.append(global_warming.values[output[1]].tolist())
+				result.append(global_warming.values[output[2]].tolist())
+				break
+			if new_article[i] == u'climate':
+				output = random.sample(range(1, 15), 3)
+				result.append(global_warming.values[output[0]].tolist())
+				result.append(global_warming.values[output[1]].tolist())
+				result.append(global_warming.values[output[2]].tolist())
+				break
+
+			elif new_article[i] == u'Russia':		
+				output = random.sample(range(1, 14), 3)
+				result.append(russia.values[output[0]].tolist())
+				result.append(russia.values[output[1]].tolist())
+				result.append(russia.values[output[2]].tolist())
+				break
+			elif new_article[i] == 'Korea':
+				output = random.sample(range(1, 15), 3)
+				result.append(north_korea.values[output[0]].tolist())
+				result.append(north_korea.values[output[1]].tolist())
+				result.append(north_korea.values[output[2]].tolist())
+				break
+		print('Result:', result)
+		return result
