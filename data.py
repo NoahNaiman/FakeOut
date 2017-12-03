@@ -66,21 +66,21 @@ class Data:
 		new_article = article.split()
 		print('New Article:', new_article)
 		for i in range(0,len(new_article)):
-			if new_article[i].lower() == u'warming' or new_article[i].lower() == u'global':
+			if new_article[i].lower() == 'warming' or new_article[i].lower() == 'global':
 				output = random.sample(range(1, 15), 3)
 				np.vstack(arr[:,:]).astype(np.float)
 				result.append(global_warming.values[output[0]].tolist())
 				result.append(global_warming.values[output[1]].tolist())
 				result.append(global_warming.values[output[2]].tolist())
 				break
-			if new_article[i] == u'climate':
+			if new_article[i] == 'climate':
 				output = random.sample(range(1, 15), 3)
 				result.append(global_warming.values[output[0]].tolist())
 				result.append(global_warming.values[output[1]].tolist())
 				result.append(global_warming.values[output[2]].tolist())
 				break
 
-			elif new_article[i] == u'Russia':		
+			elif new_article[i] == 'Russia':		
 				output = random.sample(range(1, 14), 3)
 				result.append(russia.values[output[0]].tolist())
 				result.append(russia.values[output[1]].tolist())
