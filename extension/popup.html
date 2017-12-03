@@ -1,0 +1,93 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        width: 200px;
+        height: 100%;
+
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+
+      #container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .firsttext p {
+        color: #CC1212;
+        font-size: 15px;
+        font-weight: 700;
+        padding-left: 0px;
+        padding-bottom: -10px;
+        font-style: italic;
+}
+
+      .secondtext {
+        word-wrap: break-word;
+      }
+      .secondtext p {
+        color: #1B1B1B;
+        font-size: 10px;
+        font-weight: 200;
+      }
+
+      .secondtext a {
+          font-size: 20px;
+          text-decoration-line: none;
+          font-color: black;
+      }
+
+      a:link {
+        color: black;
+      }
+      a:visited {
+      color: black;
+      }
+      a:hover {
+      color: #BBBBBB;
+      }
+}
+    </style>
+
+
+
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+    <script src="popup.js"></script>
+  </head>
+
+  <body>
+      <div class="box arrow-top">
+        <div class= "firsttext">
+          <center><p>This article is fake news</p></center>
+        </div>
+      <div class= "secondtext">
+          <center><p>We suggest sharing this real news instead:</p>
+          <a href="" id="burl">Article 1</a>
+          <br>
+          <a href="" id="burl">Article 2</a>
+          <br>
+          <a href="" id="burl">Article 3 is a very long heading with long words and longgggg long stuff</a>
+          </center>
+      </div>
+
+    </div>
+  </body>
+</html>
