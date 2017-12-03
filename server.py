@@ -10,7 +10,7 @@ url = ''
 def index():
 	result = []
 	url = request.data.decode('utf-8')
-	news_type = checker.run(article)
+	news_type = checker.run(url)
 	result.append(news_type)
 	if news_type == 'FAKE':
 		articles = checker.alternative_article(news_type)
