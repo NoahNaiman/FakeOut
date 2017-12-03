@@ -44,6 +44,7 @@ class Data:
 		page = requests.get(url)
 		soup = BeautifulSoup(page.content, 'html.parser')
 		soup = soup.find_all('p')
+		soup = soup.find(attrs={'class': None})
 		article = ''
 		for i in soup:
 			article += i.getText()
@@ -51,7 +52,7 @@ class Data:
 		return article
 
 	def run(self, string):
-		docs_new = self.scrape(string)
+		docs_new = [self.scrape(string)]
 		# print("HEEEEELLLLLOOOOO!", docs_new)
 		# docs_new.append(string)
 		X_new_counts = self.count_vect.transform(docs_new)
