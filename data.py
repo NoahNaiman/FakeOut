@@ -1,14 +1,16 @@
-'''
-Implmenting a simple machine learning algorithm using Naive-Bayes to detect whether a news article
+"""
+Implementing a simple machine learning algorithm using Naive-Bayes to detect whether a news article
 is fake news.
-'''
+"""
 
 # Imports
+import requests
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
+from bs4 import BeautifulSoup
 
 class Data:
 	def __init__(self):
@@ -33,8 +35,26 @@ class Data:
 		self.clf = MultinomialNB().fit(X_train_tfidf, y_train)
 		print('[READY]')
 
-	def run(self,string):
-		docs_new = [string]	
+	def scrape(self, url):
+		"""
+			Takes in a url of and scrapes a news articles
+			Inputs:
+			url is a string
+		"""
+		page = requests.get(url)
+		soup = BeautifulSoup(page.content, 'html.parser')
+		soup = soup.find_all('p')
+		soup = soup.find_all(attrs={'class': None})
+		print(soup)
+		article = ''
+		for p in soup:
+			article += p.getText()
+			article += ' '
+		return article
+
+	def run(self, string):
+		docs_new = self.scrape(string)
+		print("HEEEEELLLLLOOOOO!", docs_new)
 		# docs_new.append(string)
 		X_new_counts = self.count_vect.transform(docs_new)
 		X_new_tfidf = self.tfidf_transformer.transform(X_new_counts)

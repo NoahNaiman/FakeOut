@@ -8,9 +8,9 @@ url = ''
 
 @app.route('/', methods=['POST'])
 def index():
-	url = request.data
-	print('\n', url, '\n')
-	print(checker.run("This is a cool site"))
+	url = request.data.decode('utf-8')
+	# print('\n', url, '\n')
+	print(checker.run(url))
 	return('Hello, World!');
 
 if __name__ == "__main__":
