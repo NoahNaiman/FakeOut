@@ -44,11 +44,12 @@ class Data:
 		page = requests.get(url)
 		soup = BeautifulSoup(page.content, 'html.parser')
 		soup = soup.find_all('p')
-		soup = soup.find(attrs={'class': None})
 		article = ''
 		for i in soup:
-			article += i.getText()
-		print(article)
+			if not i.has_attr('class') and not i.has_attr('id') and not i.has_attr('href') and not i.has_attr('a') and not i.has_attr('script'):
+				text = i.getText();
+				if('<script' not in text and '<a href=' not in text):
+					article += i.getText()
 		return article
 
 	def run(self, string):

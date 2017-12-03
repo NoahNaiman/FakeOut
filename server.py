@@ -10,8 +10,8 @@ url = ''
 def index():
 	url = request.data.decode('utf-8')
 	# print('\n', url, '\n')
-	print(checker.run(url))
-	return('Hello, World!');
+	#print(checker.run(url))
+	return(checker.run(url));
 
 if __name__ == "__main__":
 	app.run(ssl_context=('server.crt', 'server.pem'))
