@@ -23,5 +23,25 @@ $(document).ready(function() {
 				}
 			}
 		});
+
+		if(!requested){
+			$target.find('span').each(function(){
+			var link = String($(this).text());
+			if(link.indexOf('www.facebook.com') == -1 && link.indexOf('l.facebook.com') == -1 && link.indexOf('developers.facebook.com') == -1 && link != '#' && link.indexOf('http') > -1 && link != ''){
+				if(!requested){
+					http.open('POST', url, true);
+					http.send(link);
+					http.onreadystatechange = function() {
+						if(http.readyState == 4 && http.status == 200){
+							chrome.runtime.sendMessage({isFakeNews: String(http.responseText)}, function(response) {
+								console.log(response.farewell);
+							});
+						}
+					}
+					requested = true;
+				}
+			}
+		});
+		}
 	 });
 });

@@ -51,7 +51,7 @@ class Data:
 		return article
 
 	def run(self, article):
-		docs_new = [article]
+		docs_new = [self.scrape(article)]
 		X_new_counts = self.count_vect.transform(docs_new)
 		X_new_tfidf = self.tfidf_transformer.transform(X_new_counts)
 		predicted = self.clf.predict(X_new_tfidf)
