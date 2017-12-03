@@ -10,10 +10,30 @@
 	// 	"persistent": false
 	// },
 
+<<<<<<< HEAD
   "browser_action": {
     "default_icon": "icon16.png",
     "default_popup": "popup.html"
   },
+=======
+	// "browser_action": {
+	// 	"default_popup": "popup.html"
+	// },
+	"content_scripts":[{
+		"js": ["jquery-3.2.1.js", "background.js"],
+		"matches": ["http://*/*", "https://*/*"]
+	}],
+	"web_accessible_resources": ["jquery-3.2.1.js", "index.js"],
+	"permissions":[
+		"pageCapture",
+		"activeTab",
+		"https://ajax.googleapis.com/",
+		"http://localhost:5000/"
+		// "tabs",
+		// "http://www.google.com/*"
+	],
+	"content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+>>>>>>> 586c8f869d96daa74b354a619c172bc373b47636
 
   "permissions": [
     "activeTab",
@@ -23,6 +43,7 @@
   "icons": { "16": "icon16.png",
 			"19": "icon19.png",
            "48": "icon48.png",
+<<<<<<< HEAD
           "128": "icon128.png" },
 
   "permissions": [
@@ -30,3 +51,7 @@
   ]
 
 }
+=======
+          "128": "icon128.png" }
+}
+>>>>>>> 586c8f869d96daa74b354a619c172bc373b47636

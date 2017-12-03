@@ -3,13 +3,15 @@ from flask import Flask
 from flask import request
 app = Flask(__name__)
 
-d = Data()
+checker = Data()
+url = ''
 
 @app.route('/', methods=['POST'])
 def index():
-	rd = request.data
-	print(rd)
-	return d.run("This is a cool site")
+	url = request.data.decode('utf-8')
+	# print('\n', url, '\n')
+	print(checker.run(url))
+	return('Hello, World!');
 
 if __name__ == "__main__":
 	app.run(ssl_context=('server.crt', 'server.pem'))
