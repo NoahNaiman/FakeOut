@@ -15,7 +15,7 @@ chrome.runtime.onMessage.addListener(
 			chrome.browserAction.setBadgeText({text:"!"});
 		});
     	chrome.browserAction.setBadgeText({text:"!"});
-    	chrome.browserAction.setPopup({popup: "templates/korea.html"});   
+    	chrome.browserAction.setPopup({popup: "templates/globalWarming.html"});   
     }
     else{
     	sendResponse({farewell: "REAL NEWS"});
