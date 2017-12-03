@@ -5,27 +5,24 @@ import csv
 def get_info(page_url):
     page = urllib.request.urlopen(page_url)
     soup = soup = BeautifulSoup(page, 'html.parser')
+    true_url = page_url.find('?')
+    page_url = page_url[:true_url]
 
     dataset = []
 
     if bool((soup.find('div', class_ = 'vxp-media-player-component'))):
         headline = soup.find('h1', class_= "vxp-media__headline").get_text()
-        paragraph = soup.find('div', class_= "vxp-media__summary").get_text()
     else:
         headline = soup.find('h1', class_ = 'story-body__h1').get_text()
-        table = soup.findAll( 'div', attrs = {"class":"story-body__inner"})
-        paragraph = ''
-        for x in table:
-            paragraph = x.findAll('p').text
 
-    dataset = [headline, paragraph, page_url]
+    dataset = [headline, page_url]
     print(dataset)
-    with open("BBC_Articles.csv", "a") as file:
+    with open("Truth_Articles.csv", "a") as file:
         wr = csv.writer(file, delimiter= ',')
         wr.writerow(dataset)
     return
 
-def get_info_mul(url_list):
-   for x in url_list:
-      get_info(x)
-        
+def get_info_mul():
+    file = open('BBC_News_List.txt', 'r')
+    for line in file:
+       get_info(line)
