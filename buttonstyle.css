@@ -1,0 +1,46 @@
+.box.arrow-top:after {
+  content: " ";
+  position: absolute;
+  right: 50%;
+  top: -9px;
+  border-top: 7px solid transparent;
+  border-right: none;
+  border-left: 7px solid #D8D8D8;
+  border-bottom: 7px solid transparent;
+  transform: rotate(270deg);
+}
+
+.box.arrow-top {
+  width: 200px;
+  height: 250px;
+  background-color: #D8D8D8;
+  color: #FFF;
+  padding-left: 10px;
+  padding: 15px;
+  position: relative;
+  margin: 30px;
+  float: left;
+  border-radius: 2px;
+}
+
+.firsttext p {
+  color: #CC1212;
+  font-size: 15px;
+  font-weight: 500;
+  padding-left: 0px;
+  padding-bottom: -10px;
+}
+
+.secondtext p {
+  color: #1B1B1B;
+  font-size: 10px;
+  font-weight: 200;
+}
+
+button {
+	width: 70px;
+	background-color: #CC1212;
+	color: #FFF;
+	font-size: 12px;
+}
+

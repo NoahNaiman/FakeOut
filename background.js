@@ -11,9 +11,9 @@ $(document).ready(function() {
 			}
 		});
 		articles = Array.from(new Set(articles));
-		http.open("POST", url, true);
-		http.setReaquestHeader('Content-type', 'application/x-www-form-urlencoded');
-		http.send(articles);
+//		http.open("POST", url, true);
+//		http.setReaquestHeader('Content-type', 'application/x-www-form-urlencoded');
+//		http.send(articles);
 	 	// var form = document.createElement('form');
 	 	// form.method = 'POST';
 	 	// form.action = 'http://localhost:5000/';
