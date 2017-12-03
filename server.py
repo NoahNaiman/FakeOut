@@ -1,13 +1,15 @@
 from data import Data
 from flask import Flask
-app = Flask(_name_)
+from flask import request
+app = Flask(__name__)
 
 d = Data()
 
-@app.before_first_request
-def _run_on_start():
-	d.run()
+@app.route('/', methods=['POST'])
+def index():
+	rd = request.data
+	print(rd)
+	return d.run("This is a cool site")
 
-@app.route("/")
-def run_server():
-	print('hi')
+if __name__ == "__main__":
+	app.run(ssl_context=('server.crt', 'server.pem'))
