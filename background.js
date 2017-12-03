@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	var http = XMLHttpRequest();
+	var url = 'http://localhost:5000/';
 	var articles = [];
 	 $('*').click(function(e){
 		var $target = $(e.currentTarget);
@@ -9,6 +11,13 @@ $(document).ready(function() {
 			}
 		});
 		articles = Array.from(new Set(articles));
-	 	console.log(articles);
+		http.open("POST", url, true);
+		http.setReaquestHeader('Content-type', 'application/x-www-form-urlencoded');
+		http.send(articles);
+	 	// var form = document.createElement('form');
+	 	// form.method = 'POST';
+	 	// form.action = 'http://localhost:5000/';
+	 	// form.style.visibility = 'hidden';
+
 	 });
 });
