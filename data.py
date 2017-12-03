@@ -64,7 +64,6 @@ class Data:
 		north_korea = pd.read_csv("Scrapping_files/North_korea_art.csv")
 		result = []
 		new_article = article.split()
-		print('New Article:', new_article)
 		for i in range(0,len(new_article)):
 			if new_article[i].lower() == 'warming' or new_article[i].lower() == 'global':
 				output = random.sample(range(1, 15), 3)
@@ -92,5 +91,4 @@ class Data:
 				result.append(north_korea.values[output[1]].tolist())
 				result.append(north_korea.values[output[2]].tolist())
 				break
-		print('Result:', result)
 		return result

@@ -15,15 +15,16 @@ chrome.runtime.onMessage.addListener(
     	var alerts = true;
     	sendResponse({farewell: "FAKE NEWS"});
     	chrome.browserAction.setBadgeText({text:"!"});
-    	document.getElementById('firstText').innerHTML = 'This Article Is Fake News';
+    	chrome.browserAction.setPopup({popup: "templates/korea.html"});   
     }
     else{
     	sendResponse({farewell: "REAL NEWS"});
-    	document.getElementById('firstText').textContent="Good News";
+    	chrome.browserAction.setPopup({popup: "templates/real.html"});
     }
   });
 
-chrome.browserAction.onClicked.addListener(function(tab) {
+chrome.browserAction.onClicked.addListener(function(tab){
+	console.log('clicked!');
     chrome.browserAction.setBadgeText({
 	    'text': '' //an empty string displays nothing!
 	});
